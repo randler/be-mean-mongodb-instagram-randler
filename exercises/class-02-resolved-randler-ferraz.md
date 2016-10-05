@@ -185,7 +185,7 @@ Fetched 5 record(s) in 5ms
 
 	```
 	>
-#Comandos da aula 03
+# Comandos da aula 03
 
 
 ##	->Query
@@ -471,7 +471,7 @@ Fetched 1 record(s) in 2ms
 
 	$exists
 
-##	-> Atividade Aula 3
+# -> Atividade Aula 3
 
 	1) Liste todos Pokemons com a altura menor que 0.5
 	2) Liste todos Pokemons com a altura maior ou igual que 0.5
