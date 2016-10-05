@@ -185,7 +185,303 @@ Fetched 5 record(s) in 5ms
 
 	```
 	>
-#Comandos da aula
+#Comandos da aula 03
+
+
+##	->Query
+
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {name: "Pikachu"}
+Deadpool(mongod-3.2.7) be-mean-pokemons> query
+{
+  "name": "Pikachu"
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b0fcc5835423e5192e6"),
+  "name": "Pikachu",
+  "description": "rato que da choque",
+  "type": "eletric",
+  "attack": 30,
+  "defense": 20,
+  "height": 6
+}
+
+
+##	-> Fields
+Fetched 1 record(s) in 2ms
+Deadpool(mongod-3.2.7) be-mean-pokemons> var fields = {name:1, description: 1}
+Deadpool(mongod-3.2.7) be-mean-pokemons> fields
+{
+  "name": 1,
+  "description": 1
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query, fields)
+{
+  "_id": ObjectId("57cb9b0fcc5835423e5192e6"),
+  "name": "Pikachu",
+  "description": "rato que da choque"
+}
+Fetched 1 record(s) in 2ms
+Deadpool(mongod-3.2.7) be-mean-pokemons> var fields = {name:1, description: 1, }
+
+Deadpool(mongod-3.2.7) be-mean-pokemons> var fields = {name:1, description: 1, _id:0}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query, fields)
+{
+  "name": "Pikachu",
+  "description": "rato que da choque"
+}
+Fetched 1 record(s) in 3ms
+
+
+##	-> Operados Aritméticos
+
+	<	é	$lt   -> less than
+	<=	é	$lte  -> less than or equal
+	>	é	$gt   -> greater than
+	>=	é	$gte  -> greater tha or equal
+	
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {height: {$lt: 0.5}}
+Deadpool(mongod-3.2.7) be-mean-pokemons> query
+{
+  "height": {
+    "$lt": 0.5
+  }
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b16cc5835423e5192e8"),
+  "name": "Haunter",
+  "description": "Fantasminha camarada o escambau",
+  "type": "ghost",
+  "attack": 30,
+  "defense": 20,
+  "height": 0.1
+}
+Fetched 1 record(s) in 2ms
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {height: {$lte: 0.5}}
+Deadpool(mongod-3.2.7) be-mean-pokemons> query
+{
+  "height": {
+    "$lte": 0.5
+  }
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b16cc5835423e5192e8"),
+  "name": "Haunter",
+  "description": "Fantasminha camarada o escambau",
+  "type": "ghost",
+  "attack": 30,
+  "defense": 20,
+  "height": 0.1
+}
+Fetched 1 record(s) in 2ms
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {height: {$gt: 0.5}}
+Deadpool(mongod-3.2.7) be-mean-pokemons> query
+{
+  "height": {
+    "$gt": 0.5
+  }
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b0fcc5835423e5192e6"),
+  "name": "Pikachu",
+  "description": "rato que da choque",
+  "type": "eletric",
+  "attack": 30,
+  "defense": 20,
+  "height": 6
+}
+{
+  "_id": ObjectId("57cb9b13cc5835423e5192e7"),
+  "name": "Kadabra",
+  "description": "Ele entorta as culier maluko",
+  "type": "psychic",
+  "attack": 20,
+  "defense": 20,
+  "height": 56.5
+}
+{
+  "_id": ObjectId("57cb9b18cc5835423e5192e9"),
+  "name": "Charmeleon",
+  "description": "Foda bagarai",
+  "type": "fire",
+  "attack": 30,
+  "defense": 30,
+  "height": 19
+}
+{
+  "_id": ObjectId("57cb9b1bcc5835423e5192ea"),
+  "name": "Wartotle",
+  "description": "Tartaruga com rabo de nuvem",
+  "type": "water",
+  "attack": 30,
+  "defense": 40,
+  "height": 22.5
+}
+{
+  "_id": ObjectId("57cb9e4692eb81e555089d95"),
+  "name": "Arcanine",
+  "description": "O Pokemon mais doido, doido",
+  "type": "fire",
+  "attack": 60,
+  "defense": 40,
+  "height": 155
+}
+Fetched 5 record(s) in 5ms
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {height: {$gte: 23}}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b13cc5835423e5192e7"),
+  "name": "Kadabra",
+  "description": "Ele entorta as culier maluko",
+  "type": "psychic",
+  "attack": 20,
+  "defense": 20,
+  "height": 56.5
+}
+{
+  "_id": ObjectId("57cb9e4692eb81e555089d95"),
+  "name": "Arcanine",
+  "description": "O Pokemon mais doido, doido",
+  "type": "fire",
+  "attack": 60,
+  "defense": 40,
+  "height": 155
+}
+Fetched 2 record(s) in 3ms
+
+
+
+##	-> Operadores Lógicos
+
+
+	$or   -> OU
+
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$or: [{name: "Pikachu"}, {height: 155}]}
+Deadpool(mongod-3.2.7) be-mean-pokemons> query
+{
+  "$or": [
+    {
+      "name": "Pikachu"
+    },
+    {
+      "height": 155
+    }
+  ]
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b0fcc5835423e5192e6"),
+  "name": "Pikachu",
+  "description": "rato que da choque",
+  "type": "eletric",
+  "attack": 30,
+  "defense": 20,
+  "height": 6
+}
+{
+  "_id": ObjectId("57cb9e4692eb81e555089d95"),
+  "name": "Arcanine",
+  "description": "O Pokemon mais doido, doido",
+  "type": "fire",
+  "attack": 60,
+  "defense": 40,
+  "height": 155
+}
+Fetched 2 record(s) in 3ms
+
+
+	$nor   -> Not OU
+
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$nor: [{name: "Pikachu"}, {height: 155}]}
+Deadpool(mongod-3.2.7) be-mean-pokemons> query
+{
+  "$nor": [
+    {
+      "name": "Pikachu"
+    },
+    {
+      "height": 155
+    }
+  ]
+}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9b13cc5835423e5192e7"),
+  "name": "Kadabra",
+  "description": "Ele entorta as culier maluko",
+  "type": "psychic",
+  "attack": 20,
+  "defense": 20,
+  "height": 56.5
+}
+{
+  "_id": ObjectId("57cb9b16cc5835423e5192e8"),
+  "name": "Haunter",
+  "description": "Fantasminha camarada o escambau",
+  "type": "ghost",
+  "attack": 30,
+  "defense": 20,
+  "height": 0.1
+}
+{
+  "_id": ObjectId("57cb9b18cc5835423e5192e9"),
+  "name": "Charmeleon",
+  "description": "Foda bagarai",
+  "type": "fire",
+  "attack": 30,
+  "defense": 30,
+  "height": 19
+}
+{
+  "_id": ObjectId("57cb9b1bcc5835423e5192ea"),
+  "name": "Wartotle",
+  "description": "Tartaruga com rabo de nuvem",
+  "type": "water",
+  "attack": 30,
+  "defense": 40,
+  "height": 22.5
+}
+Fetched 4 record(s) in 3ms
+
+
+	$and   -> E
+
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$and: [{name: "Pikachu"}, {height: 155}]}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+Fetched 0 record(s) in 1ms
+Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$and: [{name: "Arcanine"}, {height: 155}]}
+Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
+{
+  "_id": ObjectId("57cb9e4692eb81e555089d95"),
+  "name": "Arcanine",
+  "description": "O Pokemon mais doido, doido",
+  "type": "fire",
+  "attack": 60,
+  "defense": 40,
+  "height": 155
+}
+Fetched 1 record(s) in 2ms
+
+
+
+##	-> Operadores "Exixtênciais"
+
+	$exists
+
+##	-> Atividade Aula 3
+
+	1) Liste todos Pokemons com a altura menor que 0.5
+	2) Liste todos Pokemons com a altura maior ou igual que 0.5
+	3) Liste todos Pokemons com a altura menor ou igual que 0.5 E do tipo grama
+	4) Liste todos Pokemons com o name 'Pikachu' OU com attack menor ou igual que 0.5
+	5) Liste todos Pokemons com attack MAIOR OU IGUAL QUE 48 E com height menos ou igual que 0.5
+
+
+
+	
 
 	
 
