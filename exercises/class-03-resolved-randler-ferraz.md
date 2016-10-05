@@ -151,7 +151,8 @@ autor: Randler Ferraz Almeida
 	Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
 	Fetched 0 record(s) in 1ms
 
-```>
+```
+	>
 #Comandos da aula 04
 
 
