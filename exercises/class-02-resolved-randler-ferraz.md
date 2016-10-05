@@ -181,11 +181,9 @@ Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find()
 }
 Fetched 5 record(s) in 5ms
 
+```
 
-
-```>
-
-# Comandos da aula 03
+#Comandos da aula 03
 
 
 ##	->Query

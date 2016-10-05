@@ -152,7 +152,7 @@ autor: Randler Ferraz Almeida
 	Fetched 0 record(s) in 1ms
 
 ```
-	>
+
 #Comandos da aula 04
 
 
