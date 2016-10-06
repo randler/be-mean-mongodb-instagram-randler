@@ -234,10 +234,10 @@ Fetched 5 record(s) in 5ms
 
 ##	-> Operados Aritméticos
 
-	<	é	$lt   -> less than
-	<=	é	$lte  -> less than or equal
-	>	é	$gt   -> greater than
-	>=	é	$gte  -> greater tha or equal
+	**<	é	$lt   -> less than**
+	**<=	é	$lte  -> less than or equal**
+	**>	é	$gt   -> greater than**
+	**>=	é	$gte  -> greater tha or equal**
 
 	
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {height: {$lt: 0.5}}
@@ -357,7 +357,7 @@ Fetched 5 record(s) in 5ms
 ##	-> Operadores Lógicos
 
 
-	$or   -> OU
+	**$or   ->	OU**
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$or: [{name: "Pikachu"}, {height: 155}]}
 	Deadpool(mongod-3.2.7) be-mean-pokemons> query
@@ -393,7 +393,7 @@ Fetched 5 record(s) in 5ms
 	Fetched 2 record(s) in 3ms
 
 
-	$nor   -> Not OU
+	**$nor   ->	Not OU**
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$nor: [{name: "Pikachu"}, {height: 155}]}
 	Deadpool(mongod-3.2.7) be-mean-pokemons> query
@@ -447,7 +447,7 @@ Fetched 5 record(s) in 5ms
 	Fetched 4 record(s) in 3ms
 
 
-	$and   -> E
+	**$and   ->	E**
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {$and: [{name: "Pikachu"}, {height: 155}]}
 	Deadpool(mongod-3.2.7) be-mean-pokemons> db.pokemons.find(query)
