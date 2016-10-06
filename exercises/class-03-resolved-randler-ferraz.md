@@ -157,7 +157,7 @@ autor: Randler Ferraz Almeida
 
 ##	-> Operadores de modificação
 	
-	**$set -> Modifica um valor ou cria ele, caso não exista**
+###### $set -> Modifica um valor ou cria ele, caso não exista
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {"_id": ObjectId("57f577aff4d5a0ff9273bbcf")}
 
@@ -184,7 +184,7 @@ autor: Randler Ferraz Almeida
 
 
 
-	**$unset -> Remover campos** 
+###### $unset -> Remover campos
 	
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var mod = {$unset: {height: 1}}
 	
@@ -207,10 +207,9 @@ autor: Randler Ferraz Almeida
 	Fetched 1 record(s) in 2ms
 
 	
-	**$inc -> incrementa um valor no campo com a quantidade desejada**
+###### $inc -> incrementa um valor no campo com a quantidade desejada
 
-	
-	**Sintaxe incrementando**
+**Sintaxe incrementando**
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var mod = {$inc: {attack: 1}}
 
@@ -254,7 +253,7 @@ autor: Randler Ferraz Almeida
 	}
 	Fetched 1 record(s) in 2ms
 
-	**Sintaxe decrementando**
+**Sintaxe decrementando**
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var mod = {$inc: {attack: -101}}
 
@@ -278,7 +277,7 @@ autor: Randler Ferraz Almeida
 
 ##	->Operadores de Array
 
-	**$push -> adiciona um valor ao campo do array**
+###### $push -> adiciona um valor ao campo do array
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var query = {name: /pikachu/i}
 	
@@ -318,7 +317,7 @@ autor: Randler Ferraz Almeida
 	}
 	Fetched 1 record(s) in 2ms
 
-	**$pushAll -> Adiciona cada valor do [Array_de_valores], caso o campo seja um array**
+###### $pushAll -> Adiciona cada valor do [Array_de_valores], caso o campo seja um array
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var attacks = ['investida', 'ataque rapido', 'bola eletrica']
 
@@ -361,7 +360,7 @@ autor: Randler Ferraz Almeida
 	Fetched 1 record(s) in 2ms
 
 
-	**$pull -> Retira o valor do campo, caso o campo seja um array existente**
+###### $pull -> Retira o valor do campo, caso o campo seja um array existente
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var mod = {$pull:{moves: 'bola eletrica'}}
 
@@ -391,7 +390,7 @@ autor: Randler Ferraz Almeida
 	Fetched 1 record(s) in 2ms
 
 
-	**$pullAll -> retira cada valor do [Array_de_valores], caso o campo seja um array existente**
+###### $pullAll -> retira cada valor do [Array_de_valores], caso o campo seja um array existente
 
 	Deadpool(mongod-3.2.7) be-mean-pokemons> var attacks = ['investida', 'ataque rapido']
 
@@ -434,7 +433,7 @@ autor: Randler Ferraz Almeida
 ##	-> Options 
 **serve para configurar alguns valores diferentes do padrão para o update**
 
-	**upsert -> serve para caso o documento não seja encontrado pela query ele insira o objeto que está sendo passado como modificação**
+###### upsert -> serve para caso o documento não seja encontrado pela query ele insira o objeto que está sendo passado como modificação
 
 	
 	> var mod = {$set: {active: true}}
@@ -468,7 +467,7 @@ autor: Randler Ferraz Almeida
 	}
 	Fetched 1 record(s) in 2ms
 
-	**Pokemon inexistente**
+	__Pokemon inexistente__
 
 	> var query = {name: /squirtle/i}
 	
@@ -508,7 +507,7 @@ autor: Randler Ferraz Almeida
 	}
 	Fetched 1 record(s) in 2ms
 
-	**$setOnInsert -> define valore que serão adicionados apenas se ocorrer um upsert**
+###### $setOnInsert -> define valore que serão adicionados apenas se ocorrer um upsert
 	
 	> var mod = { $set: {active: true}, $setOnInsert: {name: "NaoExisteMon", attack: null, defense: null, height: null, description: "Sem maiores informações"}}
 
@@ -572,7 +571,7 @@ autor: Randler Ferraz Almeida
 	}
 	Fetched 1 record(s) in 2ms
 
-	**Multi -> impede que faça update sem where (com ele voce pode alterar todos os dados)**
+###### Multi -> impede que faça update sem where (com ele voce pode alterar todos os dados)
 
 	> var query = {}
 	> var mod = {$set: {active: false}}
@@ -587,12 +586,12 @@ autor: Randler Ferraz Almeida
 	})
 	
 
-	**writeConcern -> descreve a garantia que o MongoDB fornece ao relatar o sucesso de uma operação de escrita**
+###### writeConcern -> descreve a garantia que o MongoDB fornece ao relatar o sucesso de uma operação de escrita
 
 ##	->Find
 	
 	
-	**Operadores de Array**
+###### Operadores de Array
 
 
 	> var query = {}
@@ -611,7 +610,7 @@ autor: Randler Ferraz Almeida
 	})
 
 
-	**Adicionando mais attacks**
+###### Adicionando mais attacks
 	
 	> var query = {name: /pikachu/i}
 
@@ -664,7 +663,7 @@ autor: Randler Ferraz Almeida
 	  "nModified": 1
 	})
 
-	**$in -> retorna o(s) documento(s) que possui (em) algum dos valores passado no [Array_de_valores]**
+###### $in -> retorna o(s) documento(s) que possui (em) algum dos valores passado no [Array_de_valores]
 
 	> var query = {moves:{$in: [/choque do trovao/i]}}
 	
@@ -738,7 +737,7 @@ autor: Randler Ferraz Almeida
 	Fetched 2 record(s) in 2ms
 
 
-	**$nin -> (NOT in) retorna documentos se nenhum dos valores for encontrado**
+###### $nin -> (NOT in) retorna documentos se nenhum dos valores for encontrado
 
 	
 	
@@ -851,7 +850,7 @@ autor: Randler Ferraz Almeida
 	}
 	Fetched 9 record(s) in 7ms
 
-	**$all -> retorna documentos se todos os valores foram encontrados**
+###### $all -> retorna documentos se todos os valores foram encontrados
 
 
 	> var query = {moves:{$all: [/hidro bomba/i, /investida/i]}}
@@ -877,7 +876,7 @@ autor: Randler Ferraz Almeida
 ##	-> Operadores de negação
 
 	
-	**$ne (not Equal)**
+###### $ne (not Equal)
 
 	> var query = {type:{$ne: 'eletric'}}
 	
@@ -990,7 +989,7 @@ autor: Randler Ferraz Almeida
 
 
 
-	**$not (NOT)**
+###### $not (NOT)
 
 	
 	> var query = {name:{$not: /pikachu/i}}
@@ -1102,7 +1101,7 @@ autor: Randler Ferraz Almeida
 	Fetched 9 record(s) in 6ms
 
 
-	**remove() -> (Delete)**
+###### remove() -> (Delete)
 	
 	> var query ={"_id": ObjectId("57f65a90b75a6ac3a64e946b")}
 	
